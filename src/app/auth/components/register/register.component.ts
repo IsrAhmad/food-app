@@ -50,7 +50,7 @@ onRemove(event: any) {
 
   onRegister(data: FormGroup) {
     console.log(data.value)
-
+    console.log(data.value)
 
     let myData = new FormData();
 

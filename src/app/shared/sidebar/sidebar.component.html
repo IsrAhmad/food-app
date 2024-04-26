@@ -1,0 +1,30 @@
+<section class="bg-dark-main vh-100">
+
+  <div>
+    <img src="../../../assets/images/logo-2.svg" class="w-100" alt="">
+  </div>
+
+
+  <div class="mt-0">
+    <ul class="px-0">
+      <!-- <li>
+        <a routerLinkActive="router-link-active"  class="item bg-info d-block">
+          <span><i class="fa-solid fa-home"></i></span>
+          <span>Home</span>
+        </a>
+      </li> -->
+      <!-- //TODO:we use ng-container because we can't use 2 *ng commangs in the same tag -->
+      <ng-container *ngFor="let item of menu" >
+        <li *ngIf="item.isActive">
+          <a [routerLink]="item.link" routerLinkActive="active-ul"  routerLinkActive="router-link-active"  class="item d-block">
+            <span><i [class]="item.icon"></i></span>
+            <span>{{item.text}}</span>
+          </a>
+        </li>
+
+      </ng-container>
+
+    </ul>
+  </div>
+
+</section>

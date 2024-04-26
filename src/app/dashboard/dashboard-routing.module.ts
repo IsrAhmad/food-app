@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
-import { adminGuard } from '../core/interceptors/Guards/admin.guard';
-import { userGuard } from '../core/interceptors/Guards/user.guard';
-import { authGuard } from '../core/interceptors/Guards/auth.guard';
+import { AdminGuard } from '../core/interceptors/Guards/admin.guard';
+import { UserGuard } from '../core/interceptors/Guards/user.guard';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, children: [
-    {path: 'admin', canActivate: [adminGuard], loadChildren: () => import('../admin/admin.module').then(n => n.AdminModule)},
-    {path: 'user', canActivate: [adminGuard], loadChildren: () => import('../user/user.module').then(n => n.UserModule)},
-    {path: 'auth', canActivate: [adminGuard], loadChildren: () => import('../auth/auth.module').then(n => n.AuthModule)}
+    //TODO: I have to put the guards here so they can chech the roles of each user wether they are SystemUser or SuperAdmin
+    {path: 'admin', canActivate: [AdminGuard], loadChildren: () => import('../admin/admin.module').then(n => n.AdminModule)},
+    {path: 'user', canActivate: [UserGuard], loadChildren: () => import('../user/user.module').then(n => n.UserModule)},
+    // {path: 'auth', canActivate: [AuthGuard], loadChildren: () => import('../auth/auth.module').then(n => n.AuthModule)}
 
 
   ] }];
