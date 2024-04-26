@@ -1,0 +1,75 @@
+import { Component } from '@angular/core';
+import { AuthService } from 'src/app/auth/services/auth.service';
+
+//TODO: you can create an interface in the same file you're going to use it in if you will be only using it in that file. But you can still create aseparate file if you wish
+
+interface IMenu {
+  text: string;
+  icon: string;
+  link: string;
+  isActive: boolean;
+}
+
+@Component({
+  selector: 'app-sidebar',
+  templateUrl: './sidebar.component.html',
+  styleUrls: ['./sidebar.component.scss'],
+})
+export class SidebarComponent {
+
+  constructor(private _AutheService:AuthService) {}
+  // isActive: this._AutheService.role == 'SuperAdmin',
+
+  isAdmin(): boolean {
+    return this._AutheService.role == 'SuperAdmin' ? true : false;
+  }
+
+  isUser(): boolean {
+    return this._AutheService.role == 'SystemUser' ? true : false;
+  }
+
+  menu: IMenu[] = [
+    {
+      text: 'Home',
+      icon: 'fa-solid fa-home',
+      link: '', //TODO: functions maybe?
+      isActive: this.isAdmin() || this.isUser(),
+    },
+    {
+      text: 'Users',
+      icon: 'fa-solid fa-user-group',
+      link: '',
+      isActive: this.isAdmin(),
+    },
+    {
+      text: 'Admin Recipes',
+      icon: 'fa-solid fa-book-bookmark',
+      link: '',
+      isActive: this.isAdmin(),
+    },
+    {
+      text: 'Categories',
+      icon: 'fa-solid fa-calendar-days',
+      link: '',
+      isActive: this.isAdmin(),
+    },
+    {
+      text: 'User Recipes',
+      icon: 'fa-solid fa-book-bookmark',
+      link: '',
+      isActive: this.isUser(),
+    },
+    {
+      text: 'Favorites',
+      icon: 'fa-regular fa-heart',
+      link: '',
+      isActive: this.isUser(),
+    },
+    {
+      text: 'Change Password', //TODO: pop-up (use dialogue module from angular material - download angular material)
+      icon: 'fa-solid fa-unlock-keyhole',
+      link: '',
+      isActive: this.isAdmin(),
+    },
+  ];
+}
