@@ -1,0 +1,7 @@
+
+need to make a new branch for the assignments:
+b. forgot & reset password? swagger requests
+c. after registering (verify) with pop-up that has 2 input elements
+email is already written in the pop-up because we have it from the register component, put it in local storage then we add it to the verify pop-up
+d. have a code? in register page we put the same pop-up from the previous point.
+e. finish dashboard for user and admin
