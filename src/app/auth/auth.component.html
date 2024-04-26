@@ -8,13 +8,15 @@
           </div>
           <h1>Login</h1>
           <p>Welcome Back! Please enter your details</p>
-          <form>
+
+          <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm)">
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1"
                 ><i class="fa-solid fa-mobile-screen"></i
               ></span>
               <input
-                type="email"
+                formControlName="email"
+                type="text"
                 class="form-control"
                 placeholder="Enter your E-mail"
                 aria-label="email"
@@ -27,15 +29,18 @@
                 ><i class="fa-solid fa-lock"></i
               ></span>
               <input
-                type="password"
+                formControlName="password"
+                [type]="hide? 'password' : 'text'"
                 class="form-control border-end-0"
-                placeholder="password"
-                aria-label="password"
+                placeholder="Password"
+                aria-label="Password"
                 aria-describedby="basic-addon1"
-              /><span class="input-group-text cursor-pointer border-start-0" (click)="togglePassword()">
+              />
+              <span class="input-group-text cursor-pointer border-start-0" >
                 <a>
-                  <i *ngIf="!showPassword" class="fa-regular fa-eye"></i>
-                  <i *ngIf="showPassword" class="fa-regular fa-eye-slash"></i>
+                  <i (click)="hide = !hide" [class]="hide ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'"></i>
+                  <!-- <i class="fa-solid fa-eye-slash"></i> -->
+                  <!-- Or I can use [ngClass] -->
                 </a>
               </span>
             </div>

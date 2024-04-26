@@ -4,48 +4,4 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
-
-  .auth-card {
-    $text-main: #4AA35A;
-    $text-dark-gray: #3A3A3D;
-    background-color: #fff;
-    border-radius: 16px;
-    padding: 1rem;
-
-    h1 {
-      color: #494949;
-      font-size: 25;
-    }
-
-    p {
-      color: rgba(73, 73, 73, 0.6);
-    }
-
-    i {
-      color: #8391A1;
-    }
-
-    input {
-      background-color: rgba(247, 247, 247, 1);
-    }
-
-    .links {
-      display: flex;
-      justify-content: space-between;
-        .text-dark-gray {
-          color: $text-dark-gray;
-        }
-        .text-main {
-          color: $text-main;
-      }
-
-      a {
-        text-decoration: none;
-      }
-    }
-  }
-
 }
-
-
-

@@ -3,21 +3,31 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { CommonModule } from '@angular/common';
+import { AuthRoutingModule } from './auth/auth-routing.module';
+import { GlobalInterceptor } from './core/interceptors/global.interceptor';
+// import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
+    CommonModule,
+    AuthRoutingModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    // FormsModule,
+    // ReactiveFormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: GlobalInterceptor,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
