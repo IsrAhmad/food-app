@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthRoutingModule } from './auth/auth-routing.module';
 import { GlobalInterceptor } from './core/interceptors/global.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
@@ -18,6 +19,7 @@ import { GlobalInterceptor } from './core/interceptors/global.interceptor';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     // FormsModule,
     // ReactiveFormsModule
   ],

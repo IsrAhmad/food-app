@@ -32,43 +32,43 @@ export class SidebarComponent {
     {
       text: 'Home',
       icon: 'fa-solid fa-home',
-      link: '', //TODO: functions maybe?
+      link: '/dashboard/home', //TODO: functions maybe?
       isActive: this.isAdmin() || this.isUser(),
     },
     {
       text: 'Users',
       icon: 'fa-solid fa-user-group',
-      link: '',
+      link: '/dashboard/admin/users',
       isActive: this.isAdmin(),
     },
     {
       text: 'Admin Recipes',
       icon: 'fa-solid fa-book-bookmark',
-      link: '',
+      link: '/dashboard/admin/recipes',
       isActive: this.isAdmin(),
     },
     {
       text: 'Categories',
       icon: 'fa-solid fa-calendar-days',
-      link: '',
+      link: '/dashboard/admin/categories',
       isActive: this.isAdmin(),
     },
     {
       text: 'User Recipes',
       icon: 'fa-solid fa-book-bookmark',
-      link: '',
+      link: '/dashboard/user/recipes',
       isActive: this.isUser(),
     },
     {
       text: 'Favorites',
       icon: 'fa-regular fa-heart',
-      link: '',
+      link: '/dashboard/user/fav',
       isActive: this.isUser(),
     },
     {
       text: 'Change Password', //TODO: pop-up (use dialogue module from angular material - download angular material)
       icon: 'fa-solid fa-unlock-keyhole',
-      link: '',
+      link: '/dashboard/admin/change-password',
       isActive: this.isAdmin(),
     },
   ];

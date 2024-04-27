@@ -1,0 +1,20 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class CategoryService {
+  constructor(private _HttpClient: HttpClient) {}
+
+  getAllCategories(pSize:number, pNumber:number): Observable<any> {
+    return this._HttpClient.get('Category', {
+      params: { pageSize: pSize, pageNumber: pNumber },
+    });
+  }
+
+  onAddCategory(itemName:string):Observable<any> {
+   return this._HttpClient.post('Category', {name:itemName});
+  }
+}

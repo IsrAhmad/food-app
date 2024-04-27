@@ -1,7 +1,7 @@
 <section class="bg-dark-main vh-100">
 
   <div>
-    <img src="../../../assets/images/logo-2.svg" class="w-100" alt="">
+    <img src="../../../assets/images/logo-3.svg" class="w-100" alt="">
   </div>
 
 
@@ -16,12 +16,11 @@
       <!-- //TODO:we use ng-container because we can't use 2 *ng commangs in the same tag -->
       <ng-container *ngFor="let item of menu" >
         <li *ngIf="item.isActive">
-          <a [routerLink]="item.link" routerLinkActive="active-ul"  routerLinkActive="router-link-active"  class="item d-block">
+          <a [routerLink]="item.link" routerLinkActive="active-ul" class="item d-block">
             <span><i [class]="item.icon"></i></span>
             <span>{{item.text}}</span>
           </a>
         </li>
-
       </ng-container>
 
     </ul>
