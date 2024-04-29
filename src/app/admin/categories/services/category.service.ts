@@ -14,7 +14,12 @@ export class CategoryService {
     });
   }
 
-  onAddCategory(itemName:string):Observable<any> {
-   return this._HttpClient.post('Category', {name:itemName});
+  onAddCategory(itemId:string):Observable<any> {
+   return this._HttpClient.post('Category', {name:itemId});
   }
+
+  // onDeleteCategory(itemId:string):Observable<any> {
+  //   return this._HttpClient.get('Category', {id:itemId});
+  //   console.log();
+  //  }
 }

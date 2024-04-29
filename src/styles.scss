@@ -109,6 +109,13 @@ button {
       opacity: 0.7;
     }
   }
+  &.green {
+    background-color: #009247;
+    color: #fff;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
 }
 
 html, body { height: 100%; }
