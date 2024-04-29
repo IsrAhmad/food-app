@@ -146,8 +146,9 @@
             </div>
 
             <div class="links mb-3 ">
-              <a class="text-dark-gray" href="">Login Now?</a>
-              <a class="text-main" href="">Have Code?</a>
+              <a class="text-dark-gray" href="#" (click)="goLogin()">Login Now?</a>
+              <a class="text-main" (click)="openDialog()" href="#" >Have Code?</a>
+              <!-- <a class="text-main" [routerLink]="['/auth/code']" href="#" >Have Code?</a> -->
             </div>
 
             <button class="primary w-100" type="submit">Register</button>

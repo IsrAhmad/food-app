@@ -1,56 +1,80 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
+import { VerifyComponent } from '../verify/verify.component';
+import {
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+  MatDialog,
+} from '@angular/material/dialog';
+import { VerifyService } from '../../services/verify.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-
   imgSrc: any;
 
   registerForm = new FormGroup({
     userName: new FormControl(null),
-    email: new FormControl(null, [Validators.minLength(12), Validators.maxLength(100), Validators.email, Validators.required]),
+    email: new FormControl(null, [
+      Validators.minLength(12),
+      Validators.maxLength(100),
+      Validators.email,
+      Validators.required,
+    ]),
     country: new FormControl(null),
     phoneNumber: new FormControl(null),
     profileImage: new FormControl(null),
-    password: new FormControl(null, [Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()-_+=])[A-Za-z\d!@#$%^&*()-_+=]{6,}$'), Validators.required]),
-    confirmPassword: new FormControl(null)
-  })
+    password: new FormControl(null, [
+      Validators.pattern(
+        '^(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[!@#$%^&*()-_+=])[A-Za-zd!@#$%^&*()-_+=]{6,}$'
+      ),
+      Validators.required,
+    ]),
+    confirmPassword: new FormControl(null),
+  });
+  dialog: any;
+  // public dialog: MatDialog
+  // , private _VerifyService: VerifyService,
+  //
+  constructor(
+    private _AuthService: AuthService,
+    private _Router: Router,
+    private _VerifyService: VerifyService,
+    // public dialog: MatDialog
 
+  ) {}
 
-  constructor(private _AuthService: AuthService) {}
+  categryItem: string = '';
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   hide: boolean = true;
   hideConfirm: boolean = true;
 
   files: File[] = [];
 
-onSelect(event: any) {
-  console.log(event);
-  this.files.push(...event.addedFiles);
+  onSelect(event: any) {
+    console.log(event);
+    this.files.push(...event.addedFiles);
 
-  console.log(this.files)
+    console.log(this.files);
 
-  this.imgSrc = this.files[0];
-}
+    this.imgSrc = this.files[0];
+  }
 
-onRemove(event: any) {
-  console.log(event);
-  this.files.splice(this.files.indexOf(event), 1);
-}
-
+  onRemove(event: any) {
+    console.log(event);
+    this.files.splice(this.files.indexOf(event), 1);
+  }
 
   onRegister(data: FormGroup) {
-    console.log(data.value)
-    console.log(data.value)
+    console.log(data.value);
+    console.log(data.value);
 
     let myData = new FormData();
 
@@ -65,8 +89,26 @@ onRemove(event: any) {
     this._AuthService.register(data.value).subscribe({
       next: (res) => {
         console.log(res);
-      }
-    })
+      },
+    });
   }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(VerifyComponent, {
+      data: { name: this.categryItem },
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      console.log('The dialog was closed');
+      console.log(result);
+      // if(result) {
+      //   this.addCategory(result);
+      // }
+    });
+  }
+
+  goLogin() {
+    this._Router.navigate(['auth']);
+    console.log('LOGIN PAGE');
+  }
 }

@@ -55,6 +55,11 @@ export class AuthComponent implements OnInit {
     });
   }
 
+  goRegister() {
+    this._Router.navigate(['register']);
+    console.log('REGISTER PAGE');
+  }
+
   // showPassword: boolean = false;
   // password: string = '';
   // email: string = '';
