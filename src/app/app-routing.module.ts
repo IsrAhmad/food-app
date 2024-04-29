@@ -7,7 +7,12 @@ import { AuthComponent } from './auth/auth.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'auth', pathMatch: 'full'},
-  { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+  },
+  // { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
+
   { path: 'dashboard', canActivate: [AuthGuard], loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
 
 

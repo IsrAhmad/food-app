@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { AuthRoutingModule } from './auth-routing.module';
 import { AuthComponent } from './auth.component';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from '../app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './components/register/register.component';
@@ -21,8 +19,6 @@ import { VerifyComponent } from './components/verify/verify.component';
   imports: [
     CommonModule,
     AuthRoutingModule,
-    BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,

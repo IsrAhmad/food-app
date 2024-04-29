@@ -3,12 +3,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { VerifyComponent } from '../verify/verify.component';
-import {
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-  MatDialog,
-} from '@angular/material/dialog';
+
 import { VerifyService } from '../../services/verify.service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-register',
@@ -37,7 +34,7 @@ export class RegisterComponent {
     ]),
     confirmPassword: new FormControl(null),
   });
-  dialog: any;
+  // dialog: any;
   // public dialog: MatDialog
   // , private _VerifyService: VerifyService,
   //
@@ -45,7 +42,7 @@ export class RegisterComponent {
     private _AuthService: AuthService,
     private _Router: Router,
     private _VerifyService: VerifyService,
-    // public dialog: MatDialog
+    public dialog: MatDialog
 
   ) {}
 
