@@ -13,6 +13,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from './header/header.component';
+
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { FormsModule } from '@angular/forms';
     SidebarComponent,
     NavbarComponent,
     DeleteComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
@@ -37,6 +40,7 @@ import { FormsModule } from '@angular/forms';
     NgxDropzoneModule,
     SidebarComponent,
     NavbarComponent,
+    HeaderComponent,
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
