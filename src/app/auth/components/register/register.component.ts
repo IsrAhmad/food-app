@@ -37,7 +37,7 @@ export class RegisterComponent {
     ]),
     confirmPassword: new FormControl(null),
   });
-  // dialog: any;
+  dialog: any;
   // public dialog: MatDialog
   // , private _VerifyService: VerifyService,
   //
@@ -45,7 +45,7 @@ export class RegisterComponent {
     private _AuthService: AuthService,
     private _Router: Router,
     private _VerifyService: VerifyService,
-    public dialog: MatDialog
+    // public dialog: MatDialog
 
   ) {}
 
