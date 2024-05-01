@@ -3,6 +3,7 @@ import { CategoryService } from './services/category.service';
 import { AddEditCategoryComponent } from './components/add-edit-category/add-edit-category.component';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
+import { DeleteComponent } from 'src/app/shared/delete/delete.component';
 
 @Component({
   selector: 'app-categories',
@@ -47,6 +48,34 @@ export class CategoriesComponent {
       }
     });
   }
+
+
+  openDeleteDialog(id: number): void {
+    console.log(id);
+    const dialogRef = this.dialog.open(DeleteComponent, {
+      data: { itemId: id },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      console.log(result);
+      if (result) {
+        this.onDeleteItem(result);
+      }
+    });
+  }
+
+  onDeleteItem(id: number) {
+    this._CategoryService.onDeleteCategory(id).subscribe({
+      next: (res) => {
+        console.log(res);
+      },error:()=>{},
+      complete:()=>{
+        this.getCategoryData();
+      }
+    });
+  }
+
 
   // hidePageSize = false;
   // disabled = false;

@@ -60,7 +60,7 @@
                 <mat-icon>edit_square</mat-icon>
                 <span>Edit</span>
               </button>
-              <button mat-menu-item>
+              <button (click)="openDeleteDialog(item.id)" mat-menu-item>
                 <mat-icon>delete</mat-icon>
                 <span>Delete</span>
               </button>

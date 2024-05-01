@@ -18,8 +18,9 @@ export class CategoryService {
    return this._HttpClient.post('Category', {name:itemId});
   }
 
-  // onDeleteCategory(itemId:string):Observable<any> {
-  //   return this._HttpClient.get('Category', {id:itemId});
-  //   console.log();
-  //  }
+  onDeleteCategory(id:number):Observable<any> {
+    return this._HttpClient.delete(`Category/${id}`);
+   }
+
+
 }
