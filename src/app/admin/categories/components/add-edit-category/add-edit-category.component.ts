@@ -8,10 +8,11 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class AddEditCategoryComponent {
 
-  constructor(
+ constructor(
     public dialogRef: MatDialogRef<AddEditCategoryComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
   ) {}
+
 
   onNoClick(): void {
     this.dialogRef.close();

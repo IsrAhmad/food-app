@@ -14,6 +14,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -21,8 +23,9 @@ import { HeaderComponent } from './header/header.component';
     SharedComponent,
     SidebarComponent,
     NavbarComponent,
+    HeaderComponent,
     DeleteComponent,
-    HeaderComponent
+
   ],
   imports: [
     CommonModule,
@@ -35,12 +38,15 @@ import { HeaderComponent } from './header/header.component';
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
+    MatPaginatorModule,
+    MatSelectModule,
   ],
   exports: [
     NgxDropzoneModule,
     SidebarComponent,
     NavbarComponent,
     HeaderComponent,
+    DeleteComponent,
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
@@ -48,6 +54,8 @@ import { HeaderComponent } from './header/header.component';
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
+    MatPaginatorModule,
+    MatSelectModule,
   ],
 })
 export class SharedModule {}

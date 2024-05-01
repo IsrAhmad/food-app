@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-delete',
@@ -6,5 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./delete.component.scss']
 })
 export class DeleteComponent {
+
+  constructor(
+    public dialogRef: MatDialogRef<DeleteComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+  ) {
+    console.log(this.data);
+  }
+
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
 
 }

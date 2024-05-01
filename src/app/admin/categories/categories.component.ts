@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CategoryService } from './services/category.service';
 import { AddEditCategoryComponent } from './components/add-edit-category/add-edit-category.component';
 import { MatDialog } from '@angular/material/dialog';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-categories',
@@ -10,7 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class CategoriesComponent {
   pageSize: number = 10;
-  pageNumber: number = 1;
+  pageNumber: number = 0;
   listData: any;
   categryItem: string = '';
 
@@ -47,6 +48,27 @@ export class CategoriesComponent {
     });
   }
 
+  // hidePageSize = false;
+  // disabled = false;
+  // pageEvent: PageEvent;
+
+  // length = 50;
+  // pageIndex = 0;
+  // pageSizeOptions = [5, 10, 25];
+
+  showPageSizeOptions = true;
+  showFirstLastButtons = true;
+
+  handlePageEvent(e: PageEvent) {
+    console.log(e);
+    // this.pageEvent = e;
+    // this.length = e.length;
+    this.pageSize = e.pageSize;
+    this.pageNumber = e.pageIndex;
+
+    this.getCategoryData();
+  }
+
   addCategory(categoryName: string) {
     this._CategoryService.onAddCategory(categoryName).subscribe({
       next:(res)=>{
@@ -62,4 +84,6 @@ export class CategoriesComponent {
     // };
     // this._CategoryService.onAddCategory(data);
   }
+
+
 }
