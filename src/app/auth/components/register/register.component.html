@@ -17,9 +17,9 @@
               <div
                 class="col-12 d-flex align-items-center justify-content-center"
               >
-                <div class="col-4 pb-3">
+                <div class="col-4 pb-3 d-flex justify-content-center align-items-center">
                   <ngx-dropzone
-                    class="avatar d-flex justify-content-center align-items-center"
+                    class="avatar"
                     (change)="onSelect($event)"
                     [multiple]="false"
                   >
@@ -109,7 +109,7 @@
                   ></span>
                   <input
                     formControlName="password"
-                    [type]="hide? 'password' : 'text'"
+                    [type]="hide ? 'password' : 'text'"
                     class="form-control"
                     placeholder="Password"
                     aria-label="password"
@@ -117,7 +117,12 @@
                   />
                   <span class="input-group-text cursor-pointer border-start-0">
                     <a>
-                      <i (click)="hide = !hide" [class]="hide ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'"></i>
+                      <i
+                        (click)="hide = !hide"
+                        [class]="
+                          hide ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'
+                        "
+                      ></i>
                     </a>
                   </span>
                 </div>
@@ -130,7 +135,7 @@
                   ></span>
                   <input
                     formControlName="confirmPassword"
-                    [type]="hideConfirm? 'password' : 'text'"
+                    [type]="hideConfirm ? 'password' : 'text'"
                     class="form-control border-end-0"
                     placeholder="Confirm password"
                     aria-label="confirmPassword"
@@ -138,16 +143,23 @@
                   />
                   <span class="input-group-text cursor-pointer border-start-0">
                     <a>
-                      <i (click)="hideConfirm = !hideConfirm" [class]="hideConfirm ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'"></i>
+                      <i
+                        (click)="hideConfirm = !hideConfirm"
+                        [class]="
+                          hideConfirm
+                            ? 'fa-solid fa-eye-slash'
+                            : 'fa-solid fa-eye'
+                        "
+                      ></i>
                     </a>
                   </span>
                 </div>
               </div>
             </div>
 
-            <div class="links mb-3 ">
+            <div class="links mb-3">
               <a class="text-dark-gray" (click)="goLogin()">Login Now?</a>
-              <a class="text-main" (click)="openDialog()" >Have Code?</a>
+              <a class="text-main" (click)="openDialog()">Have Code?</a>
               <!-- <a class="text-main" [routerLink]="['/auth/verify']" >Have Code?</a> -->
             </div>
 
