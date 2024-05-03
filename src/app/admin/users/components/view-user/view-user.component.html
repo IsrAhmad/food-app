@@ -1,0 +1,24 @@
+<section>
+  <div class="container">
+    <div class="row">
+        <div class="col-md-4 text-center">
+          <img [src]="data.imagePath ? imgUrl + data.imagePath : emptyImg" class="w-100" alt="">
+        </div>
+
+        <div class="col-md-8">
+          <div>
+            <h2>{{data.userName}}</h2>
+            <p>{{data.email}}</p>
+            <p><i class="fa-solid fa-phone"></i> {{data.phoneNumber}}</p>
+          </div>
+        </div>
+
+
+        <div class="col-md-12 text-end my-2">
+          <button class="btn btn-secondary" (click)="onNoClick()" >Close</button>
+        </div>
+
+
+    </div>
+  </div>
+</section>

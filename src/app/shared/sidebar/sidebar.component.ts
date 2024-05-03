@@ -56,7 +56,7 @@ export class SidebarComponent {
     {
       text: 'User Recipes',
       icon: 'fa-solid fa-book-bookmark',
-      link: '/dashboard/user/recipes',
+      link: '/dashboard/user/user-recipes',
       isActive: this.isUser(),
     },
     {
