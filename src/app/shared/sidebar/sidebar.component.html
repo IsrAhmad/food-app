@@ -1,18 +1,12 @@
-<section class="bg-dark-main vh-100">
+<section class="bg-dark-main h-100 position-fixed col-md-2 sidebar">
 
   <div>
-    <img src="../../../assets/images/logo-3.svg" class="w-25" alt="">
+    <img src="../../../assets/images/logo-3.svg" class="w-100" alt="">
   </div>
 
 
   <div class="mt-0">
     <ul class="px-0 list-unstyled">
-      <!-- <li>
-        <a routerLinkActive="router-link-active"  class="item bg-info d-block">
-          <span><i class="fa-solid fa-home"></i></span>
-          <span>Home</span>
-        </a>
-      </li> -->
       <!-- //TODO:we use ng-container because we can't use 2 *ng commangs in the same tag -->
       <ng-container *ngFor="let item of menu" >
         <li *ngIf="item.isActive">
