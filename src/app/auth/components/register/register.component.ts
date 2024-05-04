@@ -91,6 +91,7 @@ export class RegisterComponent {
   }
 
   openDialog(): void {
+    debugger
     const dialogRef = this.dialog.open(VerifyComponent, {
       data: { name: this.categryItem },
     });

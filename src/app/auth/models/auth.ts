@@ -3,6 +3,11 @@ export interface ILogin {
   password: string;
 }
 
+export interface IVerify {
+  email: string;
+  code: string;
+}
+
 export interface IRegister {
   userName: string;
   email: string;

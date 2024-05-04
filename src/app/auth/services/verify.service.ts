@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { IVerify } from '../models/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +18,11 @@ export class VerifyService {
   // "email": "string",
   // "code": "string"
 
-  onAddCode(userEmail:string, verifyCode:string):Observable<any> {
-   return this._HttpClient.post('verify', {email:userEmail, code:verifyCode});
-  }
+  // verify(data: IVerify): Observable<any> {
+  //   return this._HttpClient.post('Users/verify', data);
+  // }
+
+  // onAddCode(userEmail:string, verifyCode:string):Observable<any> {
+  //  return this._HttpClient.post('Users/verify', {email:userEmail, code:verifyCode});
+  // }
 }

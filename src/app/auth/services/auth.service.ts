@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ILogin, IRegister } from '../models/auth';
+import { ILogin, IRegister, IVerify } from '../models/auth';
 import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
@@ -48,6 +48,10 @@ export class AuthService {
 
   login(data: ILogin): Observable<any> {
     return this._HttpClient.post('Users/Login', data);
+  }
+
+  verify(data: IVerify): Observable<any> {
+    return this._HttpClient.put('Users/verify', data);
   }
 
   register(data: FormData): Observable<any> {

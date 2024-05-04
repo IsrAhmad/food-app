@@ -56,7 +56,7 @@ export class AuthComponent implements OnInit {
   }
 
   goRegister() {
-    this._Router.navigate(['register']);
+    this._Router.navigate(['auth/register']);
     console.log('REGISTER PAGE');
   }
 
