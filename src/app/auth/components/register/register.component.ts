@@ -62,6 +62,8 @@ export class RegisterComponent {
     console.log(this.files);
 
     this.imgSrc = this.files[0];
+    console.log( this.imgSrc );
+
   }
 
   onRemove(event: any) {
@@ -83,7 +85,7 @@ export class RegisterComponent {
     myData.append('confirmPassword', data.value.confirmPassword);
     myData.append('profileImage', this.imgSrc);
 
-    this._AuthService.register(data.value).subscribe({
+    this._AuthService.register(myData).subscribe({
       next: (res) => {
         console.log(res);
       },

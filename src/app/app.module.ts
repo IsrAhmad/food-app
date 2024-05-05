@@ -9,10 +9,11 @@ import { CommonModule } from '@angular/common';
 
 import { GlobalInterceptor } from './core/interceptors/global.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NotFoundComponent } from './not-found/not-found.component';
 // import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NotFoundComponent],
   imports: [
     CommonModule,
 

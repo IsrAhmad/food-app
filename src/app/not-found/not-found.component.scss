@@ -1,0 +1,23 @@
+.not-found {
+  background-image: url(../../assets/images/Not-Found-bg.png);
+  background-size: cover;
+
+  .picture-not-found {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+  }
+
+  .page {
+    font-size: 32px;
+    font-weight: 400;
+    color: #009247;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    height: 12rem;
+    justify-content: space-between;
+  }
+}
