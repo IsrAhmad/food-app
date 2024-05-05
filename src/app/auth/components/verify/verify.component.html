@@ -1,13 +1,35 @@
-<p>verify works!</p>
-
-<!-- <h1 mat-dialog-title>Hi</h1>
-<div mat-dialog-content>
-  <mat-form-field>
-    <mat-label>Category Name</mat-label>
-    <input matInput [(ngModel)]="data.name">
-  </mat-form-field>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data.name" cdkFocusInitial>Ok</button>
-</div> -->
+<section class="p-3">
+  <div class="text-end m-2">
+    <a (click)="onNoClick()" class="text-danger"><i class="fa-solid fa-xmark-circle fa-2x"></i></a>
+  </div>
+  <form [formGroup]="verifyForm" (ngSubmit)="onVerify(verifyForm)">
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1"
+        ><i class="fa-solid fa-mobile-screen"></i
+      ></span>
+      <input
+        formControlName="email"
+        type="text"
+        class="form-control"
+        placeholder="E-mail"
+        aria-label="email"
+        aria-describedby="basic-addon1"
+      />
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1"
+        ><i class="fa-solid fa-code"></i
+      ></span>
+      <input
+        formControlName="code"
+        type="text"
+        class="form-control"
+        placeholder="Verification Code"
+        aria-label="code"
+        aria-describedby="basic-addon1"
+      />
+    </div>
+    <div class="text-end">
+    <button class="primary w-25" type="submit">Ok</button></div>
+  </form>
+</section>
