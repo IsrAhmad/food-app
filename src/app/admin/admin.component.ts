@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { HeaderService } from '../shared/header/services/header.service';
 
 @Component({
   selector: 'app-admin',
@@ -7,7 +8,28 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent {
-  constructor( private _Router:Router) {}
+  constructor( private _Router:Router,private _HeaderService:HeaderService) {}
+
+  userName: string ='';
+  name: string = '';
+  listData: any;
+
+  ngOnInit() {
+    this.getUserName();
+  }
+
+  getUserName() {
+    this._HeaderService
+      .getUserName(this.userName, this.name)
+      .subscribe({
+        next: (res) => {
+          this.userName = res.userName;
+          this.name = res.name;
+          console.log(res);
+          this.listData = res;
+        },
+      });
+  }
 
   goRecipes() {
     this._Router.navigate(['dashboard/admin/recipes']);
