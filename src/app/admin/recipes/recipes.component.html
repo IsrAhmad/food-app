@@ -27,7 +27,7 @@
   <div>
     <div class="d-flex align-content-center justify-content-between my-3">
       <h2 class="h4">Recipes Table Details</h2>
-      <!-- <button class="primary">Add New Recipe</button> -->
+      <button class="primary" routerLink="add">Add New Recipe</button>
     </div>
     <p>You can check all details</p>
     <div>
@@ -134,7 +134,7 @@
                 <mat-icon>visibility</mat-icon>
                 <span>View</span>
               </button>
-              <button mat-menu-item>
+              <button mat-menu-item [routerLink]="['edit', item.id]">
                 <mat-icon>edit_square</mat-icon>
                 <span>Edit</span>
               </button>

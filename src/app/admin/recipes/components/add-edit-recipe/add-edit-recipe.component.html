@@ -1,1 +1,47 @@
-<p>add-edit-recipe works!</p>
+<section>
+  <div class="container">
+    <form [formGroup]="addRecipeForm" (ngSubmit)="sendData(addRecipeForm)">
+      <div class="row">
+        <div class="col-md-12">
+          <input type="text" class="form-control" formControlName="name" placeholder="name">
+        </div>
+        <div class="col-md-12">
+          <input type="text" class="form-control" formControlName="price" placeholder="price">
+        </div>
+        <div class="col-md-6">
+          <mat-form-field>
+            <mat-label>Tag</mat-label>
+            <mat-select formControlName="tagId"  >
+              <mat-option *ngFor="let tag of listTags" [value]="tag.id">{{
+                tag.name
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+
+        </div>
+        <div class="col-md-6">
+          <mat-form-field>
+            <mat-label>Category</mat-label>
+            <mat-select  formControlName="categoriesIds" >
+              <mat-option
+                *ngFor="let item of listCategories"
+                [value]="item.id"
+                >{{ item.name }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-12">
+          <textarea type="text" class="form-control" formControlName="description"></textarea>
+        </div>
+        <div>
+          <div class="cl-md-12">
+            
+          </div>
+        </div>
+      </div>
+      <button class="primary" type="submit">Save</button>
+    </form>
+  </div>
+</section>

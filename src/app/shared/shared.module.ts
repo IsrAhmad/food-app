@@ -12,7 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSelectModule} from '@angular/material/select';
@@ -40,6 +40,7 @@ import {MatSelectModule} from '@angular/material/select';
     FormsModule,
     MatPaginatorModule,
     MatSelectModule,
+    ReactiveFormsModule,
   ],
   exports: [
     NgxDropzoneModule,
@@ -56,6 +57,7 @@ import {MatSelectModule} from '@angular/material/select';
     FormsModule,
     MatPaginatorModule,
     MatSelectModule,
+    ReactiveFormsModule,
   ],
 })
 export class SharedModule {}

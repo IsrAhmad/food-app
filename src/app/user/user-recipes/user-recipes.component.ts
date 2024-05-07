@@ -5,6 +5,7 @@ import { CategoryService } from 'src/app/admin/categories/services/category.serv
 import { RecipeService } from 'src/app/admin/recipes/services/recipe.service';
 import { DeleteComponent } from 'src/app/shared/delete/delete.component';
 import { Tag } from '../../admin/recipes/models/tag';
+import { FavService } from '../fav/services/fav.service';
 
 
 @Component({
@@ -25,7 +26,13 @@ export class UserRecipesComponent {
   listTags: Tag[] = [];
   listCategories: any[] = []; //TODO: make categories INTEFRACE
 
+
+  isNotHearted: boolean = true;
+
+
+
   constructor(
+    private _FavService:FavService,
     private _CategoryService: CategoryService,
     private _RecipeService: RecipeService,
     public dialog: MatDialog
@@ -100,6 +107,15 @@ export class UserRecipesComponent {
         this.getRecipeData();
       }
     });
+  }
+
+
+  onAddToFav(id: number): void {
+    this._FavService.onAddFavRecipes(id).subscribe({
+      next:(res) => {
+        console.log(res);
+      }
+    })
   }
 
   handlePageEvent(e: PageEvent) {

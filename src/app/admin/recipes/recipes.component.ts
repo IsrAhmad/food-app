@@ -50,7 +50,7 @@ export class RecipesComponent {
 
     this._RecipeService.getAllRecipes(paramData).subscribe({
       next: (res) => {
-        console.log(res);
+        // console.log(res);
         this.listData = res;
         //TODO: this.listData = res.data; is INCORRECT because it removes the pagination
       },
@@ -60,7 +60,7 @@ export class RecipesComponent {
   getTags() {
     this._RecipeService.getTags().subscribe({
       next: (res) => {
-        console.log(res);
+        // console.log(res);
         this.listTags = res;
         //TODO: this.listData = res.data; is INCORRECT because it removes the pagination
       },
@@ -70,7 +70,7 @@ export class RecipesComponent {
   getAllCategories() {
     this._CategoryService.getAllCategories(10000, 1).subscribe({
       next: (res) => {
-        console.log(res);
+        // console.log(res);
         this.listCategories = res.data;
         //TODO: this.listData = res.data; is INCORRECT because it removes the pagination
       },

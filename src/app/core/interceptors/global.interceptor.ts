@@ -17,8 +17,7 @@ export class GlobalInterceptor implements HttpInterceptor {
     const baseUrl = 'https://upskilling-egypt.com:3006/api/v1/';
 
     const token = localStorage.getItem('userToken');
-    console.log('ISRAAAAAAAAA');
-    console.log(token);
+    // console.log(token);
 
     let x = request.clone({
       url: baseUrl + request.url,

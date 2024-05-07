@@ -99,6 +99,11 @@
             />
             <div class="p-2">
               <h3>{{ item.name }}</h3>
+
+              <button (click)="onAddToFav(item.id)">
+                <i [class]="isNotHearted ? 'fa-regular fa-heart' : 'fa-solid fa-heart'" (click)="isNotHearted = !isNotHearted"></i>
+                <!-- (click)="isHearted = !isHearted" -->
+              </button>
               <span
                 class="position-absolute top-0 end-0 badge text-bg-light shadow-sm m-2"
                 >{{ item.price | currency : "EGP " }}</span

@@ -1,5 +1,19 @@
 .sidebar {
-  border-radius: 0px, 58px, 0px, 0px;
+  width: 70px; /* Initial width of the sidebar */
+  transition: width 0.3s; /* Smooth transition for expanding and collapsing */
+}
+
+.expand {
+  width: 240px; /* Expanded width of the sidebar */
+}
+
+.toggle-btn {
+  background-color: transparent;
+  height: 90px;
+}
+
+.toggle-expand {
+  width: 200px;
 }
 
 .item {
@@ -15,4 +29,3 @@
 .active-ul {
   background-color: #00924e26;
 }
-

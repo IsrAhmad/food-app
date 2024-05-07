@@ -1,23 +1,24 @@
-<section class="bg-dark-main h-100 position-fixed col-md-2 sidebar">
+<section class="bg-dark-main vh-100 position-fixed col-md-2 sidebar" [ngClass]="{ 'expand': isExpanded }">
+  <button class="button p-0 m-0 toggle-btn"  [ngClass]="{ 'toggle-expand mb-1': isExpanded }" (click)="toggleSidebar()">
+    <img src="../../../assets/images/logo-3.svg" class="w-100 logo" />
+  </button>
 
-  <div>
-    <img src="../../../assets/images/logo-3.svg" class="w-100" alt="">
-  </div>
-
-
-  <div class="mt-0">
-    <ul class="px-0 list-unstyled">
-      <!-- //TODO:we use ng-container because we can't use 2 *ng commangs in the same tag -->
-      <ng-container *ngFor="let item of menu" >
-        <li *ngIf="item.isActive">
-          <a [routerLink]="item.link" routerLinkActive="active-ul" class="item d-block">
-            <span><i [class]="item.icon"></i></span>
-            <span>{{item.text}}</span>
-          </a>
-        </li>
-      </ng-container>
-
-    </ul>
-  </div>
-
+<div class="mt-5">
+  <ul class="px-0 list-unstyled" [ngClass]="{ 'text-center': !isExpanded }">
+    <ng-container *ngFor="let item of menu">
+      <li *ngIf="item.isActive">
+        <a
+          [routerLink]="item.link"
+          routerLinkActive="active-ul"
+          class="item d-block"
+        >
+          <span><i [class]="item.icon"></i></span>
+          <span *ngIf="isExpanded">{{ item.text }}</span>
+        </a>
+      </li>
+    </ng-container>
+  </ul>
+</div>
 </section>
+
+      <!-- //TODO:we use ng-container because we can't use 2 *ng commands in the same tag -->

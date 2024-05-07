@@ -1,1 +1,40 @@
-<p>fav works!</p>
+<section>
+  <div class="container">
+    <div class="row py-2 gy-3">
+      <div class="col-md-4" *ngFor="let item of listFav.data">
+        <div class="position-relative card">
+          <img
+            [src]="
+              item.recipe.imagePath ? imgUrl + item.recipe.imagePath : emptyImg
+            "
+            class="w-100 rounded-top-2 rounded-bottom-5"
+          />
+          <div class="p-2">
+            <h3 class="d-flex justify-content-between align-items-center">
+              <span>{{ item.recipe.name }}</span>
+              <button (click)="openDeleteDialog(item.id)" class="btn btn-outline-danger btn-sm">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+            </h3>
+            <span
+              class="position-absolute top-0 end-0 badge text-bg-light shadow-sm m-2"
+              >{{ item.recipe.price | currency : "EGP " }}</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <mat-paginator
+    #paginator
+    class="demo-paginator mb-5 mx-5"
+    (page)="handlePageEvent($event)"
+    [length]="listFav?.totalNumberOfRecords"
+    [pageSize]="pageSize"
+    [pageIndex]="pageNumber"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</section>

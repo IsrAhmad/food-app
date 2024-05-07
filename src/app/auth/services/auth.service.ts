@@ -23,9 +23,9 @@ export class AuthService {
     let encoded: any = localStorage.getItem('userToken');
 
     let decoded: any = jwtDecode(encoded); //TODO: we put the type as 'any' for now because it wants us to create an interface later
-    console.log(decoded);
+    // console.log(decoded);
     // console.log('DECODED');
-    console.log(decoded.userGroup);
+    // console.log(decoded.userGroup);
     // console.log('DECODED USER GROUP');
 
     localStorage.setItem('role', decoded.userGroup); //TODO: we put it in local storage so it doesn't get reset on refresh

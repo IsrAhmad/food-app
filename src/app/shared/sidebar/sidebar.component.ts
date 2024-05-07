@@ -16,9 +16,14 @@ interface IMenu {
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
+  isExpanded: boolean = false;
 
-  constructor(private _AutheService:AuthService) {}
-  // isActive: this._AutheService.role == 'SuperAdmin',
+  constructor(private _AutheService: AuthService) {}
+
+  toggleSidebar(): void {
+
+    this.isExpanded = !this.isExpanded;
+  }
 
   isAdmin(): boolean {
     return this._AutheService.role == 'SuperAdmin' ? true : false;

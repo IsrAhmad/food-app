@@ -15,8 +15,16 @@ export class RecipeService {
     });
   }
 
+  getRecipeById(id:number): Observable<any> {
+    return this._HttpClient.get(`Recipe/${id}`); //DON'T FORGET THE $ SIGN !!
+  }
+
   onAddRecipe(data: FormData):Observable<any> {
     return this._HttpClient.post('Recipe', data);
+   }
+
+   onEditRecipe(data: FormData, id:number):Observable<any> {
+    return this._HttpClient.put(`Recipe/${id}`, data);
    }
 
   onDeleteRecipe(id:number):Observable<any> {
