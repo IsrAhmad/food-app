@@ -1,12 +1,33 @@
 <section>
+  <div class="container-fluid mb-3">
+    <div class="page-title row align-items-center">
+      <div class="col-7">
+        <h1 class="h2">
+          Welcome <span>{{ userName }}</span>
+        </h1>
+        <p>
+          This is a welcoming screen for the entry of the application , you can
+          now see the options
+        </p>
+      </div>
+
+      <div class="col-5">
+        <img src="../../../assets/images/menu-avatar.svg" alt="" />
+      </div>
+    </div>
+  </div>
   <div class="container-fluid">
     <div class="row home p-4">
       <div class="col-md-10">
-        <h2>Fill the <span class="h2 recipes">Recipes</span>!</h2>
-        <p>you can now fill the meals easily using the table and form , click here and sill it with the table !</p>
+        <h2>Show <span class="h2 recipes">Recipes</span>!</h2>
+        <p>
+          you can now view, search and favorite meals easily using the table and form , click
+          here and see it with the table !
+        </p>
       </div>
       <div class="col-md-2 p-0">
-        <button class="primary view-recipes" (click)="goRecipes()">Fill Recipes
+        <button class="primary view-recipes" (click)="goRecipes()">
+          Recipes
           <span><i class="fa-solid fa-arrow-right"></i></span>
         </button>
       </div>
