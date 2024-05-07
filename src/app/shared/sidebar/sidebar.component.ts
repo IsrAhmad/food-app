@@ -49,7 +49,7 @@ export class SidebarComponent {
       isActive: this.isAdmin(),
     },
     {
-      text: 'Admin Recipes',
+      text: 'Recipes',
       icon: 'fa-solid fa-book-bookmark',
       link: '/dashboard/admin/recipes',
       isActive: this.isAdmin(),
@@ -61,7 +61,7 @@ export class SidebarComponent {
       isActive: this.isAdmin(),
     },
     {
-      text: 'User Recipes',
+      text: 'Recipes',
       icon: 'fa-solid fa-book-bookmark',
       link: '/dashboard/user/user-recipes',
       isActive: this.isUser(),

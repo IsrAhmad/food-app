@@ -40,22 +40,22 @@ export class UserComponent {
   name: string = '';
   listData: any;
 
-  ngOnInit() {
-    this.getUserName();
-  }
+  // ngOnInit() {
+  //   this.getUserName();
+  // }
 
-  getUserName() {
-    this._HeaderService
-      .getUserName(this.userName, this.name)
-      .subscribe({
-        next: (res) => {
-          this.userName = res.userName;
-          this.name = res.name;
-          console.log(res);
-          this.listData = res;
-        },
-      });
-  }
+  // getUserName() {
+  //   this._HeaderService
+  //     .getUserName(this.userName, this.name)
+  //     .subscribe({
+  //       next: (res) => {
+  //         this.userName = res.userName;
+  //         this.name = res.name;
+  //         console.log(res);
+  //         this.listData = res;
+  //       },
+  //     });
+  // }
 
   goRecipes() {
     this._Router.navigate(['dashboard/user/user-recipes']);
