@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { SidebarService } from './services/sidebar.service';
 
 //TODO: you can create an interface in the same file you're going to use it in if you will be only using it in that file. But you can still create aseparate file if you wish
 
@@ -18,12 +19,13 @@ interface IMenu {
 export class SidebarComponent {
   isExpanded: boolean = false;
 
-  constructor(private _AutheService: AuthService) {}
+  constructor(private _AutheService: AuthService, private sidebarService: SidebarService) {}
 
   toggleSidebar(): void {
-
     this.isExpanded = !this.isExpanded;
+    this.sidebarService.toggleSidebar(!this.sidebarService.isExpandedSubject.value);
   }
+
 
   isAdmin(): boolean {
     return this._AutheService.role == 'SuperAdmin' ? true : false;
@@ -47,7 +49,7 @@ export class SidebarComponent {
       isActive: this.isAdmin(),
     },
     {
-      text: 'Admin Recipes',
+      text: 'Recipes',
       icon: 'fa-solid fa-book-bookmark',
       link: '/dashboard/admin/recipes',
       isActive: this.isAdmin(),
@@ -59,7 +61,7 @@ export class SidebarComponent {
       isActive: this.isAdmin(),
     },
     {
-      text: 'User Recipes',
+      text: 'Recipes',
       icon: 'fa-solid fa-book-bookmark',
       link: '/dashboard/user/user-recipes',
       isActive: this.isUser(),

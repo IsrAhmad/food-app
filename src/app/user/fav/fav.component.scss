@@ -1,4 +1,17 @@
+.page-title {
+  background-image: url(../../../assets/images/header-bg-svg.svg);
+  background-repeat: no-repeat;
+  background-color: #009247;
+  border-radius: 15px;
+  color: #fff;
+
+  span {
+    font-size: 18px;
+    font-weight: 400;
+  }
+}
 
 .fa-heart {
   color: #c9424e;
 }
+
