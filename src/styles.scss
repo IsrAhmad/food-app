@@ -120,3 +120,16 @@ button {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.page-title {
+  background-image: url(./assets/images/header-bg-svg.svg);
+  background-repeat: no-repeat;
+  background-color: #009247;
+  border-radius: 15px;
+  color: #fff;
+  span {
+    font-size: 18px;
+    font-weight: 400;
+  }
+}
