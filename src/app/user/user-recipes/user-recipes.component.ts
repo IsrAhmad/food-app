@@ -17,7 +17,7 @@ export class UserRecipesComponent {
   imgUrl: string = 'https://upskilling-egypt.com:3006/';
   emptyImg: string = '../../../assets/images/noRecipe.png';
   pageSize: number = 10;
-  pageNumber: number = 1;
+  pageNumber: number = 0;
   listData: any;
   categryItem: string = '';
 
