@@ -1,10 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ILogin, IRegister, IVerify } from '../models/auth';
+import { ILogin, IRegister, IVerify, IChangePassword, IRequest, IReset } from '../models/auth';
 import { jwtDecode } from 'jwt-decode';
 import { Router } from '@angular/router';
-
 @Injectable({
   providedIn: 'root',
 })
@@ -64,4 +63,18 @@ export class AuthService {
     sessionStorage.clear();
     this._Router.navigate(['/auth']);
   }
+
+  changePassword(data: IChangePassword): Observable<any>  {
+    return this._HttpClient.put('Users/ChangePassword', data);
+  }
+
+
+  request(data: IRequest): Observable<any>  {
+    return this._HttpClient.post('Users/Reset/Request', data);
+  }
+
+  reset(data: IReset): Observable<any>  {
+    return this._HttpClient.post('Users/Reset', data);
+  }
+
 }

@@ -8,13 +8,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './components/register/register.component';
 import { SharedModule } from '../shared/shared.module';
 import { VerifyComponent } from './components/verify/verify.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 
 @NgModule({
   declarations: [
     AuthComponent,
     RegisterComponent,
-    VerifyComponent
+    VerifyComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent
   ],
   imports: [
     CommonModule,

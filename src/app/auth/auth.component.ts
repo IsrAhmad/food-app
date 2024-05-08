@@ -37,14 +37,8 @@ export class AuthComponent implements OnInit {
     this._AuthService.login(data.value).subscribe({
       next: (res) => {
         console.log(res);
-        //TODO: the following line [localStorage.setItem('userToken', res.token);] should be in the complete: () => {},
-        //TODO: res.token is because the response from the API returns like so: {
-        //TODO: "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyOCwicm9sZXMiOlsiVXNlciIsImNhblVwZGF0ZVVzZXIiLCJjYW5HZXRDdXJyZW50VXNlciIsImNhbkNoYW5nZVBhc3N3b3JkIl0sInVzZXJOYW1lIjoiaXNyYWExMSIsInVzZXJFbWFpbCI6ImlzcmFhLnBpY3R1cmVzMjAyM0BnbWFpbC5jb20iLCJ1c2VyR3JvdXAiOiJTeXN0ZW1Vc2VyIiwiaWF0IjoxNzE0MTUyNDgxLCJleHAiOjE3MTc3NTI0ODF9.LmYKKz3rvSn70wKnzfIVCFTAm4u-NthGP6JtNY1lEK2IZg0NT7yEQpBRtGJj7_h1t4FJEEEA_q3R5zXi2MioT5g189iGXqH9KGMxMrFBtFFHbpuFzUbUo1uD3umUB6N4WiUTPtyVZFJydhlYsWmalsGgIFFmmuBB9Cq783-WgEh5gqqOT-iYGq6Pd-b9owe7kjIyKwTbt3TBERa1ZtsxEe052vAvqVdbzXPDSZgA6ADX9BhZxOykOjctriLr2dWpcSORulaWK973BXn_ojRr0EtABwzHEp9ytmjmyj48JQrS6niX18vyG0R04G7IztAOpvGP_0vLpDUNhznL0CE2BQ",
-        //TODO: "expiresIn": "Fri Jun 07 2024 09:28:00 GMT+0000 (Coordinated Universal Time)"
-        //TODO: }
-
         localStorage.setItem('userToken', res.token);
-        //TODO: after receiving the token you should nevigate to the dashboard
+        //TODO: after receiving the token you should navigate to the dashboard
 
         this._AuthService.getProfile();//TODO: this line is for refresh
       },
@@ -58,5 +52,15 @@ export class AuthComponent implements OnInit {
   goRegister() {
     this._Router.navigate(['auth/register']);
     console.log('REGISTER PAGE');
+  }
+
+  goRequest() {
+    this._Router.navigate(['auth/forgot-password']);
+    console.log('REQUEST PAGE');
+  }
+
+  goChangePassword() {
+    this._Router.navigate(['dashboard/admin/change-password']);
+    console.log('PASSWORD PAGE');
   }
 }
