@@ -59,23 +59,4 @@ export class AuthComponent implements OnInit {
     this._Router.navigate(['auth/register']);
     console.log('REGISTER PAGE');
   }
-
-  // showPassword: boolean = false;
-  // password: string = '';
-  // email: string = '';
-  // loginForm:FormGroup = new FormGroup({
-  //   userName: new FormControl(null, [Validators.minLength(3), Validators.maxLength(8), Validators.required]),
-  //   email: new FormControl(null, [Validators.email, Validators.required]),
-  //   country: new FormControl(null, [Validators.required]),
-  //   phoneNumber: new FormControl(null, [Validators.minLength(6), Validators.maxLength(15), Validators.required]),
-  //   profileImage: new FormControl(null),
-  //   password: new FormControl(null, [Validators.minLength(3), Validators.maxLength(8), Validators.pattern('^[A-Z][a-z]{3,8}'), Validators.required]),
-  //   confirmPassword: new FormControl(null, [Validators.minLength(3), Validators.maxLength(8), Validators.pattern('^[A-Z][a-z]{3,8}'), Validators.required])
-  // });
-
-  // togglePassword(): void {
-  //   this.showPassword = !this.showPassword;
-  // }
-
-  // constructor(private _Auth: Auth) {}
 }

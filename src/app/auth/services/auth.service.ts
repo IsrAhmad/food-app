@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ILogin, IRegister, IVerify } from '../models/auth';
 import { jwtDecode } from 'jwt-decode';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,7 @@ export class AuthService {
   // role: string = '';
   role: string | null = null;
 
-  constructor(private _HttpClient: HttpClient) {
+  constructor(private _HttpClient: HttpClient, private _Router: Router) {
     if (localStorage.getItem('userToken') !== null) {
       this.getProfile();
     }
@@ -56,5 +57,11 @@ export class AuthService {
 
   register(data: FormData): Observable<any> {
     return this._HttpClient.post('Users/Register', data);
+  }
+
+  logout(): void {
+    localStorage.clear();
+    sessionStorage.clear();
+    this._Router.navigate(['/auth']);
   }
 }

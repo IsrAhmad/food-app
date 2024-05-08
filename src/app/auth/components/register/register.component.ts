@@ -93,7 +93,7 @@ export class RegisterComponent {
   }
 
   openDialog(): void {
-    debugger
+    // debugger
     const dialogRef = this.dialog.open(VerifyComponent, {
       data: { name: this.categryItem },
     });
@@ -101,9 +101,6 @@ export class RegisterComponent {
     dialogRef.afterClosed().subscribe((result: any) => {
       console.log('The dialog was closed');
       console.log(result);
-      // if(result) {
-      //   this.addCategory(result);
-      // }
     });
   }
 

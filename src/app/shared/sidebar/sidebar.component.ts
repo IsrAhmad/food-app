@@ -19,7 +19,7 @@ interface IMenu {
 export class SidebarComponent {
   isExpanded: boolean = false;
 
-  constructor(private _AutheService: AuthService, private sidebarService: SidebarService) {}
+  constructor(private _AuthService: AuthService, private sidebarService: SidebarService) {}
 
   toggleSidebar(): void {
     this.isExpanded = !this.isExpanded;
@@ -28,11 +28,15 @@ export class SidebarComponent {
 
 
   isAdmin(): boolean {
-    return this._AutheService.role == 'SuperAdmin' ? true : false;
+    return this._AuthService.role == 'SuperAdmin' ? true : false;
   }
 
   isUser(): boolean {
-    return this._AutheService.role == 'SystemUser' ? true : false;
+    return this._AuthService.role == 'SystemUser' ? true : false;
+  }
+
+  onLogout() {
+    this._AuthService.logout();
   }
 
   menu: IMenu[] = [
@@ -81,7 +85,7 @@ export class SidebarComponent {
     {
       text: 'Logout', //TODO: pop-up (use dialogue module from angular material - download angular material)
       icon: 'fa-solid fa-sign-out',
-      link: '' && localStorage.clear(),
+      link: '' && this.onLogout(),
       isActive: this.isAdmin() || this.isUser(),
     },
   ];
