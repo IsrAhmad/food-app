@@ -17,3 +17,21 @@ export interface IRegister {
   password: string;
   confirmPassword: string;
 }
+
+export interface IChangePassword {
+  oldPassword: string,
+  newPassword: string,
+  confirmNewPassword: string
+}
+
+export interface IRequest {
+  email: string;
+}
+
+export interface IReset {
+  email: string,
+  password: string,
+  confirmPassword: string,
+  seed: string
+}
+

@@ -7,6 +7,7 @@ const routes: Routes = [
   {path: 'categories', loadChildren: () => import('./categories/categories.module').then((m) => m.CategoriesModule),},
   {path: 'recipes', loadChildren: () => import('./recipes/recipes.module').then((m) => m.RecipesModule),},
   { path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
+  { path: 'change-password', loadChildren: () => import('./change-password/change-password.module').then(m => m.ChangePasswordModule) },
 ];
 
 @NgModule({
