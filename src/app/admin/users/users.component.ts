@@ -17,7 +17,7 @@ import { ViewUserComponent } from './components/view-user/view-user.component';
 export class UsersComponent {
 
   imgUrl: string = 'https://upskilling-egypt.com:3006/';
-  emptyImg: string = '../../../assets/images/noRecipe.png';
+  emptyImg: string = '../../../assets/images/default-user.png';
   pageSize: number = 10;
   pageNumber: number = 1;
   listData: any;
@@ -45,9 +45,6 @@ export class UsersComponent {
 
 
     let paramData = {
-      // name: this.searchValue,
-      // roleId: this.roleId,
-      // parameterKey: this.parameterKey,
       [this.parameterKey]: this.searchValue, //[] brackets when the value is dynamic
       groups: this.roleIds,
       pageSize: this.pageSize,
