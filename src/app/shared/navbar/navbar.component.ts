@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavbarService } from './services/navbar.service';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class NavbarComponent {
 
 
   constructor(
+    private _AuthService:AuthService,
     private _Router: Router,
     private _NavbarService: NavbarService
   ) {}
@@ -43,6 +45,10 @@ export class NavbarComponent {
           this.listData = res;
         },
       });
+  }
+
+  onLogout() {
+    this._AuthService.logout();
   }
 
 }
