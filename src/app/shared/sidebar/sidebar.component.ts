@@ -43,7 +43,7 @@ export class SidebarComponent {
     {
       text: 'Home',
       icon: 'fa-solid fa-home',
-      link: this.isAdmin() ? '/dashboard/admin' : '/dashboard/user', //TODO: functions maybe?
+      link: this.isAdmin() ? '/dashboard/admin' : '/dashboard/user',
       isActive: this.isAdmin() || this.isUser(),
     },
     {
@@ -81,12 +81,6 @@ export class SidebarComponent {
       icon: 'fa-solid fa-unlock-keyhole',
       link: '/dashboard/admin/change-password',
       isActive: this.isAdmin(),
-    },
-    {
-      text: 'Logout', //TODO: pop-up (use dialogue module from angular material - download angular material)
-      icon: 'fa-solid fa-sign-out',
-      link: '' && this.onLogout(),
-      isActive: this.isAdmin() || this.isUser(),
     },
   ];
 }

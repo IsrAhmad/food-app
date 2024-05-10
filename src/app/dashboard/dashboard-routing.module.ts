@@ -10,8 +10,6 @@ const routes: Routes = [
     {path: 'admin', canActivate: [AdminGuard], loadChildren: () => import('../admin/admin.module').then(n => n.AdminModule)},
     {path: 'user', canActivate: [UserGuard], loadChildren: () => import('../user/user.module').then(n => n.UserModule)},
     // {path: 'auth', canActivate: [AuthGuard], loadChildren: () => import('../auth/auth.module').then(n => n.AuthModule)}
-
-
   ] }];
 
 @NgModule({
