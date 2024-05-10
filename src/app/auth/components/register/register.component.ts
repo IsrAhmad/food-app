@@ -16,7 +16,7 @@ export class RegisterComponent {
   imgSrc: any;
 
   registerForm = new FormGroup({
-    userName: new FormControl(null),
+    userName: new FormControl(null, [Validators.required,]),
     email: new FormControl(null, [
       Validators.minLength(12),
       Validators.maxLength(100),
@@ -27,9 +27,8 @@ export class RegisterComponent {
     phoneNumber: new FormControl(null),
     profileImage: new FormControl(null),
     password: new FormControl(null, [
-      Validators.pattern(
-        '^(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[!@#$%^&*()-_+=])[A-Za-zd!@#$%^&*()-_+=]{6,}$'
-      ),
+      Validators.pattern(/^(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[!@#$%^&*_=+-]).{8,16}$/),
+      // Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[!@#$%^&*()-_+=])[A-Za-zd!@#$%^&*()-_+=]{6,}$'),
       Validators.required,
     ]),
     confirmPassword: new FormControl(null),

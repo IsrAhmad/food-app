@@ -23,6 +23,9 @@
                 aria-describedby="basic-addon1"
               />
             </div>
+            <div *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched">
+              <p *ngIf="loginForm.get('email')?.getError('required')" class="alert py-1 alert-danger">email is required</p>
+            </div>
 
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1"
@@ -44,13 +47,15 @@
                 </a>
               </span>
             </div>
+            <div *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched">
+              <p *ngIf="loginForm.get('password')?.getError('required')" class="alert py-1 alert-danger">password is required</p>
+            </div>
 
             <div class="links mb-3">
               <a class="text-dark-gray" (click)="goRegister()">Register Now?</a>
               <a class="text-main" (click)="goRequest()">Forgot Password?</a>
             </div>
-
-            <button class="primary w-100" type="submit">Login</button>
+            <button  class="primary w-100" type="submit">Login</button>
           </form>
         </div>
       </div>
