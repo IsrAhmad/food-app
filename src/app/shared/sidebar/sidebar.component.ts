@@ -43,7 +43,7 @@ export class SidebarComponent {
     {
       text: 'Home',
       icon: 'fa-solid fa-home',
-      link: this.isAdmin() ? '/dashboard/admin' : '/dashboard/user', //TODO: functions maybe?
+      link: this.isAdmin() ? '/dashboard/admin' : '/dashboard/user',
       isActive: this.isAdmin() || this.isUser(),
     },
     {
