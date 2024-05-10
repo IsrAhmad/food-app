@@ -53,6 +53,10 @@
                   />
                 </div>
               </div>
+              <div *ngIf="registerForm.get('userName')?.errors && registerForm.get('userName')?.touched">
+                <p *ngIf="registerForm.get('userName')?.getError('required')" class="alert py-1 alert-danger">userName is required</p>
+              </div>
+
 
               <div class="col-6">
                 <div class="input-group mb-3">
@@ -68,6 +72,11 @@
                     aria-describedby="basic-addon1"
                   />
                 </div>
+              </div>
+              <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched">
+                <p *ngIf="registerForm.get('email')?.getError('required')" class="alert py-1 alert-danger">email is required</p>
+                <p *ngIf="registerForm.get('email')?.getError('minlength')" class="alert py-1 alert-danger">email minlength is 12</p>
+                <p *ngIf="registerForm.get('email')?.getError('maxlength')" class="alert py-1 alert-danger">email maxlength is 100</p>
               </div>
 
               <div class="col-6">
@@ -127,6 +136,10 @@
                   </span>
                 </div>
               </div>
+              <!-- <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched">
+                <p *ngIf="registerForm.get('password')?.getError('required')" class="alert py-1 alert-danger">password is required</p>
+                <p *ngIf="registerForm.get('password')?.getError('pattern')" class="alert py-1 alert-danger">The password must include at least one lowercase letter, one uppercase letter, one digit, one special character, and be at least 6 characters long.</p>
+              </div> -->
 
               <div class="col-6">
                 <div class="input-group mb-3 col-6">
