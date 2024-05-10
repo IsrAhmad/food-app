@@ -1,10 +1,12 @@
 .sidebar {
   width: 70px; /* Initial width of the sidebar */
   transition: width 0.3s; /* Smooth transition for expanding and collapsing */
+  border-top-right-radius: 58px;
 }
 
 .expand {
   width: 240px; /* Expanded width of the sidebar */
+  transition: width 0.3s;
 }
 
 .toggle-btn {
