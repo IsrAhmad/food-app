@@ -82,11 +82,5 @@ export class SidebarComponent {
       link: '/dashboard/admin/change-password',
       isActive: this.isAdmin(),
     },
-    {
-      text: 'Logout', //TODO: pop-up (use dialogue module from angular material - download angular material)
-      icon: 'fa-solid fa-sign-out',
-      link: '' && this.onLogout(),
-      isActive: this.isAdmin() || this.isUser(),
-    },
   ];
 }
