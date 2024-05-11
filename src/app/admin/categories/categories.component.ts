@@ -50,6 +50,33 @@ export class CategoriesComponent {
   }
 
 
+
+  openEditDialog(id: number): void {
+    console.log(id);
+    const dialogRef = this.dialog.open(AddEditCategoryComponent, {
+      data: { itemId: id },
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+        if(result.id) this.onEditItem(result.id, result.name);
+        else this.addCategory(result.name);
+      }
+    });
+  }
+
+  onEditItem(id: number, name:string) {
+    this._CategoryService.onEditCategory(name,id).subscribe({
+      next: (res) => {
+        console.log(res);
+      },error:()=>{},
+      complete:()=>{
+        this.getCategoryData();
+      }
+    });
+  }
+
+
   openDeleteDialog(id: number): void {
     console.log(id);
     const dialogRef = this.dialog.open(DeleteComponent, {

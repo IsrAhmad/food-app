@@ -53,11 +53,7 @@
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
-              <button mat-menu-item>
-                <mat-icon>visibility</mat-icon>
-                <span>View</span>
-              </button>
-              <button mat-menu-item>
+              <button mat-menu-item (click)="openEditDialog(item.id)">
                 <mat-icon>edit_square</mat-icon>
                 <span>Edit</span>
               </button>

@@ -18,6 +18,10 @@ export class CategoryService {
    return this._HttpClient.post('Category', {name:itemId});
   }
 
+  onEditCategory(name: string, id:number):Observable<any> {
+    return this._HttpClient.put(`Category/${id}`, {name});
+   }
+
   onDeleteCategory(id:number):Observable<any> {
     return this._HttpClient.delete(`Category/${id}`);
    }
