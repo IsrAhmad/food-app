@@ -15,19 +15,38 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./add-edit-recipe.component.scss'],
 })
 export class AddEditRecipeComponent implements OnInit {
-  addRecipeForm = new FormGroup({
-    name: new FormControl(null),
-    description: new FormControl(null),
-    price: new FormControl(null),
-    tagId: new FormControl(null),
-    recipeImage: new FormControl(null),
-    categoriesIds: new FormControl(null),
-  });
+  // addRecipeForm = new FormGroup({
+  //   name: new FormControl(''),
+  //   description: new FormControl(''),
+  //   price: new FormControl(''),
+  //   tagId: new FormControl(''),
+  //   recipeImage: new FormControl(''),
+  //   categoriesIds: new FormControl(),
+  // });
 
+  data: { [key: string]: any } = {
+    name: "",
+    description: "",
+    price: null,
+    tagId: null,
+    categoriesIds: [],
+    recipeImage: null,
+  }
+
+
+
+  addRecipeForm!: FormGroup;
+
+  imgSrc: any;
+  id!: number;
+  image!: any;
   listTags: Tag[] = [];
   listCategories: any[] = [];
   recipeId: number = 0;
   recipeData: any;
+  baseUrl = "https://upskilling-egypt.com:3006/";
+selectedCategoryIds: number[] =[];
+files: any[] =[];
 
   constructor(
     private _RecipeService: RecipeService,
@@ -38,6 +57,17 @@ export class AddEditRecipeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+     this.addRecipeForm = new FormGroup({
+    name: new FormControl(this.data['name']),
+    description: new FormControl(this.data['description']),
+    price: new FormControl(this.data['price']),
+    tagId: new FormControl(this.data['tagId']),
+    recipeImage: new FormControl(this.data['recipeImage']),
+    categoriesIds: new FormControl(this.data['categoriesIds'])
+  });
+
+
     console.log(this._ActivatedRoute.snapshot.params['id']);
     this.recipeId = this._ActivatedRoute.snapshot.params['id'];
     this.getAllCategories();
@@ -84,25 +114,62 @@ export class AddEditRecipeComponent implements OnInit {
       },
       error: () => {},
       complete: () => {
-        const categoriesIds = this.recipeData.category.map((category: { id: number }) => category.id);
+        // for(let i=0 ; i<this.recipeData.category.length ; i++){
+        //   this.selectedCategoryIds.push(this.recipeData.category[i].id);
+        //  }
+        // const categoriesIds = this.recipeData.category.map((category: { id: number }) => category.id).join(',');
+
+        const imgUrl:any = this.baseUrl + this.recipeData.imagePath;
+
+        this.fetchImage(imgUrl);
+        // const categoriesIds = this.recipeData.category.map((category: { id: number }) => category.id).join(',');
+        // const categoriesIds = this.recipeData.category.map((category: { id: number }) => category.id);
         this.addRecipeForm.patchValue({
           name: this.recipeData.name,
           price: this.recipeData.price,
+          // categoriesIds:categoriesIds,
+          // categoriesIds: this.recipeData.category.map((category: { id: number }) => category.id).join(','),
           // categoriesIds: this.recipeData.categoriesIds.join(','),
-          categoriesIds: this.recipeData.category[0].id,
+          categoriesIds: this.recipeData.category.map((value:any) => value.id),
+          // categoriesIds: this.selectedCategoryIds,
           tagId: this.recipeData.tag.id,
           description: this.recipeData.description,
-          recipeImage: this.recipeData.imagePath,
+          recipeImage: imgUrl,
+          // recipeImage: this.baseUrl + this.recipeData.imagePath,
         })
       }
-    });
+    })
   }
 
-  sendData(data: FormGroup) {
-    console.log(data.value);
+  async fetchImage(url: string) {
+    var res = await fetch(url);
+    var blob = await res.blob();
+    this.image = blob;
+    return blob;
+  };
+
+  onSelect(event: any) {
+    this.image = event.addedFiles[0];
+  }
+
+  onRemove(event: any) {
+    this.image = null;
+  }
+
+  sendData(recipeData: FormGroup) {
+    console.log(recipeData.value);
+    let data = new FormData();
+
+
+    for (let key in this.addRecipeForm.value) {
+      if (key === "recipeImage") continue;
+      data.append(key, this.addRecipeForm.value[key]);
+    }
+
+    if (this.imgSrc) data.append("recipeImage", this.imgSrc);
 
     if(this.recipeId) {
-      this._RecipeService.onAddRecipe(data.value).subscribe({
+      this._RecipeService.onAddRecipe(data).subscribe({
         next: (res) => {
           console.log(res);
 
@@ -110,7 +177,7 @@ export class AddEditRecipeComponent implements OnInit {
       })
     }
     else {
-      this._RecipeService.onEditRecipe(data.value, this.recipeId).subscribe({
+      this._RecipeService.onEditRecipe(data, this.recipeId).subscribe({
         next: (res) => {
           console.log(res);
 
