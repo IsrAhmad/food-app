@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSelectModule} from '@angular/material/select';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import {MatSelectModule} from '@angular/material/select';
     NavbarComponent,
     HeaderComponent,
     DeleteComponent,
+    ProfileComponent,
 
   ],
   imports: [
