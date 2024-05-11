@@ -23,7 +23,7 @@
         <div class="col-md-6">
           <mat-form-field>
             <mat-label>Category</mat-label>
-            <mat-select  formControlName="categoriesIds" >
+            <mat-select  formControlName="categoriesIds" multiple>
               <mat-option
                 *ngFor="let item of listCategories"
                 [value]="item.id"
@@ -37,7 +37,26 @@
         </div>
         <div>
           <div class="cl-md-12">
-            
+            <div class="w-100">
+
+              <ngx-dropzone
+                (change)="onSelect($event)"
+                accept="image/jpeg,image/jpg,image/png,image/gif"
+                [multiple]="false"
+              >
+                <ngx-dropzone-label>
+                  <i class="fa-solid fa-upload"></i> Upload Image
+                </ngx-dropzone-label>
+                <ngx-dropzone-image-preview
+                  ngProjectAs="ngx-dropzone-preview"
+                  *ngIf="image"
+                  [file]="image"
+                  [removable]="true"
+                  (removed)="onRemove(image)"
+                >
+                </ngx-dropzone-image-preview>
+              </ngx-dropzone>
+            </div>
           </div>
         </div>
       </div>
